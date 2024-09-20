@@ -2,6 +2,12 @@ agregarElemento :: [a] -> a -> Bool -> [a]
 agregarElemento (x:xs) a True = a:(x:xs)
 agregarElemento (x:xs) a False = (x:xs) ++[a]
 
+maximoLista :: (Num a, Ord a) => [a] -> a
+maximoLista [] = 0
+maximoLista (x:xs)=if x > maximoLista(xs)
+        then x
+        else maximoLista(xs)
+
 
 
 indice :: [a] -> Int -> a

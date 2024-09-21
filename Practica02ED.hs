@@ -1,3 +1,11 @@
+longitud :: [a] -> Int
+longitud [] = 0
+longitud (x:xs) = 1 + longitud(xs)
+
+sumaLista :: Num a => [a] -> a
+sumaLista [a] = a
+sumaLista (x:xs) = x + sumaLista(xs)
+
 agregarElemento :: [a] -> a -> Bool -> [a]
 agregarElemento (x:xs) a True = a:(x:xs)
 agregarElemento (x:xs) a False = (x:xs) ++[a]
@@ -15,6 +23,16 @@ indice [] index = error "no puedes ingresa una lista vacía"
 indice (x:xs) index = if index == 0
     then x
     else indice xs (index -1)
-    
+
+
+divisores :: Int -> [Int]
+divisores a = [x|x <- [1..a] , mod a x == 0]
+
+conjunto :: Eq a => [a] -> [a]
+conjunto [] = []
+conjunto (x:xs) = x:conjunto[a|a<-xs,x/=a] 
+
 numerosPares :: [Int] -> [Int]
 numerosPares xs =  [x| x<- xs, mod x 2 == 0]
+
+

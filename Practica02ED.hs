@@ -13,8 +13,9 @@ agregarElemento [] a bool =
         else []++[a]
 
 maximoLista :: (Num a, Ord a) => [a] -> a
-maximoLista [] = 0
-maximoLista (x:xs)=if x > maximoLista(xs)
+maximoLista [x] = x
+maximoLista (x:xs)=
+        if x > maximoLista(xs)
         then x
         else maximoLista(xs)
 
@@ -22,7 +23,7 @@ maximoLista (x:xs)=if x > maximoLista(xs)
 
 indice :: [a] -> Int -> a
 indice [] index = error "no puedes ingresa una lista vacía"
-indice (x:xs) index =  if  index <= 0 || index > longitud(x:xs)-1
+indice (x:xs) index =  if  index < 0 || index >longitud(x:xs)-1
         then error "indice no válido"
         else  if index == 0
     then x

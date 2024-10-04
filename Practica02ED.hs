@@ -7,12 +7,13 @@ sumaLista [a] = a
 sumaLista (x:xs) = x + sumaLista(xs)
 
 agregarElemento :: [a] -> a -> Bool -> [a]
-agregarElemento [] a bool = 
+agregarElemento (x:xs) a bool = 
          if bool
         then  a:[]
-        else []++[a]
+        else [a]++[a]
 
 maximoLista :: (Num a, Ord a) => [a] -> a
+maximoLista [] = error "no se puede ingresar una lista vacía"
 maximoLista [x] = x
 maximoLista (x:xs)=
         if x > maximoLista(xs)
@@ -20,10 +21,9 @@ maximoLista (x:xs)=
         else maximoLista(xs)
 
 
-
 indice :: [a] -> Int -> a
 indice [] index = error "no puedes ingresa una lista vacía"
-indice (x:xs) index =  if  index < 0 || index >longitud(x:xs)-1
+indice (x:xs) index =  if  index < 0 || index > longitud(x:xs)-1
         then error "indice no válido"
         else  if index == 0
     then x

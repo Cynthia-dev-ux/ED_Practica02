@@ -7,14 +7,14 @@ sumaLista [a] = a
 sumaLista (x:xs) = x + sumaLista(xs)
 
 agregarElemento :: [a] -> a -> Bool -> [a]
-agregarElemento (x:xs) a bool = 
-         if bool
-        then  a:[]
-        else [a]++[a]
+agregarElemento lista a bool = 
+         if bool 
+        then  a:lista
+        else lista++[a]
 
 maximoLista :: (Num a, Ord a) => [a] -> a
 maximoLista [] = error "no se puede ingresar una lista vacía"
-maximoLista [x] = x
+maximoLista [x] = x     
 maximoLista (x:xs)=
         if x > maximoLista(xs)
         then x
